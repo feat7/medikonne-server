@@ -9,6 +9,9 @@ class Routes
 	{
 		$this->routes = [
 			'/' => ['uses' => 'Welcome@welcomeToSurface'],
+
+			'app.register' => ['uses' => 'AppAuthController@register'],
+			'app.login' => ['uses' => 'AppAuthController@login'],
 		];
 
 		return $this->routes;
