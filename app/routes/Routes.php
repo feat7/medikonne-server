@@ -12,6 +12,10 @@ class Routes
 
 			'app.register' => ['uses' => 'AppAuthController@register'],
 			'app.login' => ['uses' => 'AppAuthController@login'],
+
+			'app.test.cost' => ['uses' => 'AppLabController@testCostApi'],
+			'app.tests' => ['uses' => 'AppLabController@testApi'],
+			'app.labs' => ['uses' => 'AppLabController@labApi'],
 		];
 
 		return $this->routes;

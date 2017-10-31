@@ -149,7 +149,6 @@ class AppAuthController extends Controller
 				$json = [
 					'success' => false,
 					'message' => 'Wrong credentials',
-					$user
 				];
 
 				// return view('auth/login.tpl', ['error' => 1]);

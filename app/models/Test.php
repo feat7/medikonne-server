@@ -8,9 +8,10 @@ use system\models\Model;
 /**
 * 
 */
-class User extends Model
+class Test extends Model
 {
 	protected $guarded = [
 		'id'
 	];
+	
 }
