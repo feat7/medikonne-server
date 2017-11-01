@@ -16,6 +16,7 @@ class Routes
 			'app.test.cost' => ['uses' => 'AppLabController@testCostApi'],
 			'app.tests' => ['uses' => 'AppLabController@testApi'],
 			'app.labs' => ['uses' => 'AppLabController@labApi'],
+			'app.lab.appointments' => ['uses' => 'AppLabController@labAppointmentsApi'],
 		];
 
 		return $this->routes;
