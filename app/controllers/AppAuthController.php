@@ -6,6 +6,7 @@ namespace app\controllers;
 use \system\controllers\Controller;
 use \app\models\User;
 use \app\libs\Auth;
+use \Firebase\JWT\JWT;
 
 
 /**
@@ -131,10 +132,13 @@ class AppAuthController extends Controller
 			if(!$user) $user = User::where('mobile', $mobile)->first();
 
 			if($user && password_verify($password, $user->password)) {
+
+				$token['user'] = $user; 
 				$json = [
 					'success' => true,
 					'message' => 'Logged in',
 					'user' => $user->toArray(),
+					'token' => JWT::encode($token, JWT_SECRET)
 				];
 
 				Auth::login($user);
