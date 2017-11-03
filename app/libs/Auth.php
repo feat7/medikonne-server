@@ -1,6 +1,8 @@
 <?php
 
 namespace app\libs;
+use \Firebase\JWT\JWT;
+
 
 /**
 * Auth package
@@ -61,5 +63,11 @@ class Auth
 	public static function viewPanel()
 	{
 
+	}
+
+	public static function isTokenCorrect($token)
+	{
+		$data = JWT::decode($token, JWT_SECRET, array('HS256'));
+		var_dump($data);
 	}
 }

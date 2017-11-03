@@ -7,6 +7,7 @@ use app\models\TestCost;
 use app\models\Test;
 use app\models\Lab;
 use app\models\LabAppointment;
+use \Firebase\JWT\JWT;
 
 
 /**
