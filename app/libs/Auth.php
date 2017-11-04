@@ -68,6 +68,12 @@ class Auth
 	public static function isTokenCorrect($token)
 	{
 		$data = JWT::decode($token, JWT_SECRET, array('HS256'));
-		var_dump($data);
+
+		$user = User::where('mobile', $data['mobile'])->first();
+
+		if($user && password_verify($data['password'], $user->password)) {
+			return true;
+		} 
+		return false;
 	}
 }

@@ -8,6 +8,7 @@ use app\models\Test;
 use app\models\Lab;
 use app\models\LabAppointment;
 use \Firebase\JWT\JWT;
+use app\libs\Auth;
 
 
 /**
@@ -15,6 +16,16 @@ use \Firebase\JWT\JWT;
 */
 class AppLabController extends Controller
 {
+	public function __construct() {
+		if(!Auth::isTokenCorrect($this->get('token'))) {
+			echo json_encode(['success' => false, 'data' => 'Auth token incorrect']);
+			exit;
+			return 0;
+		} else {
+			//Auth token correct!
+		}
+	}
+
 	public function testApi()
 	{
 		echo json_encode(['success'=>true, 'data'=>Test::all()]);

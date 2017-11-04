@@ -32,6 +32,11 @@ class AppAuthController extends Controller
 	* Request POST
 	*/
 	public function login() {
+		// $token['name'] = $this->get('name'); 
+		// $token['pass'] = $this->get('pass'); 
+		// $token = JWT::encode($token, JWT_SECRET);
+		// echo $token;
+		// Auth::isTokenCorrect($token);
 		if($this->isPost()) {
 			return $this->loginUser();
 		}
