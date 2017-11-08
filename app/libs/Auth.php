@@ -2,6 +2,7 @@
 
 namespace app\libs;
 use \Firebase\JWT\JWT;
+use app\models\User;
 
 
 /**
@@ -69,11 +70,9 @@ class Auth
 	{
 		$data = JWT::decode($token, JWT_SECRET, array('HS256'));
 
-		$user = User::where('mobile', $data['mobile'])->first();
+		if($data->user)
+		return $data->user;
 
-		if($user && password_verify($data['password'], $user->password)) {
-			return true;
-		} 
 		return false;
 	}
 }
