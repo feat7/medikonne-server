@@ -68,10 +68,14 @@ class Auth
 
 	public static function isTokenCorrect($token)
 	{
-		$data = JWT::decode($token, JWT_SECRET, array('HS256'));
+		try {
+			$data = JWT::decode($token, JWT_SECRET, array('HS256'));	
 
-		if($data->user)
-		return $data->user;
+			if($data->user)
+			return $data->user;	
+		} catch(\UnexpectedValueException $e) {
+
+		}
 
 		return false;
 	}

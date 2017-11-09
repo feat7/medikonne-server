@@ -10,8 +10,12 @@ class Routes
 		$this->routes = [
 			'/' => ['uses' => 'Welcome@welcomeToSurface'],
 
+			'login' => ['uses' => 'AuthController@login'],
+			'register' => ['uses' => 'AuthController@register'],
+
 			'app.register' => ['uses' => 'AppAuthController@register'],
 			'app.login' => ['uses' => 'AppAuthController@login'],
+			'app.check.auth' => ['uses' => 'AuthController@checkAuth'],
 
 			'app.test.cost' => ['uses' => 'AppLabController@testCostApi'],
 			'app.tests' => ['uses' => 'AppLabController@testApi'],
